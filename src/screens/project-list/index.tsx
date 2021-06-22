@@ -3,7 +3,7 @@ import qs from "qs";
 
 import { SearchPanel } from "./search-panel";
 import { List } from "./list";
-import { cleanObject, useMount, useDebounce } from "utils/index";
+import { cleanObject, useMount, useDebounce } from "utils";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -15,7 +15,7 @@ export const ProjectListScreen = () => {
   const [users, setUsers] = useState([]);
   const [list, setList] = useState([]);
 
-  const debouncedParam = useDebounce(param, 2000);
+  const debouncedParam = useDebounce(param, 200);
   useEffect(() => {
     fetch(
       `${apiUrl}/projects?${qs.stringify(cleanObject(debouncedParam))}`
