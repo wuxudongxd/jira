@@ -1,4 +1,7 @@
-import React, { ReactNode, useState } from "react";
+/**
+ * 将对对象的操作封装到context，方便共享context里的数据和函数
+ */
+import React, { ReactNode, useContext, useState } from "react";
 import * as auth from "auth-provider";
 import { User } from "screens/project-list/search-panel";
 
@@ -21,7 +24,7 @@ AuthContext.displayName = "AuthContext";
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
 
-  const login = (form: AuthForm) => auth.login(form).then(setUser); // 这里setUser等价于(user) => setUser(user)
+  const login = (form: AuthForm) => auth.login(form).then(setUser);
   const register = (form: AuthForm) => auth.register(form).then(setUser);
   const logout = () => auth.logout().then(() => setUser(null));
 
@@ -34,7 +37,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 };
 
 export const useAuth = () => {
-  const context = React.useContext(AuthContext);
+  const context = useContext(AuthContext);
   if (!context) {
     throw new Error("useAuth必须在AuthProvider中使用");
   }

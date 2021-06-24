@@ -1,6 +1,11 @@
+/**
+ * 实现对localStorage操作的具体逻辑
+ */
+
 import { User } from "screens/project-list/search-panel";
 
 export const localStorageKey = "__auth_provider_token__";
+export const apiUrl = process.env.REACT_APP_API_URL;
 
 export const getToken = () => window.localStorage.getItem(localStorageKey);
 
@@ -8,8 +13,6 @@ export const handleUserResponse = ({ user }: { user: User }) => {
   window.localStorage.setItem(localStorageKey, user.token || "");
   return user;
 };
-
-const apiUrl = process.env.REACT_APP_API_URL;
 
 export const login = (data: { username: string; password: string }) => {
   return fetch(`${apiUrl}/login`, {
