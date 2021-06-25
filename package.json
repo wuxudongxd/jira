@@ -16,6 +16,7 @@
     "@types/react-dom": "^17.0.0",
     "antd": "^4.16.5",
     "craco-less": "^1.17.1",
+    "dayjs": "^1.10.5",
     "jira-dev-tool": "^1.7.61",
     "qs": "^6.10.1",
     "react": "^17.0.2",
@@ -34,6 +35,9 @@
     "json-server": "json-server __json_server_mock__/db.json --watch --port 3001 --middlewares ./__json_server_mock__/middleware.js"
   },
   "eslintConfig": {
+    "rules": {
+      "jsx-a11y/anchor-is-valid": "off"
+    },
     "extends": [
       "react-app",
       "react-app/jest",
