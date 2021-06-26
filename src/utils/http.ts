@@ -45,6 +45,7 @@ export const http = async (
     });
 };
 
+// 实现了token的自动传递
 export const useHttp = () => {
   const { user } = useAuth();
   return (...[endpoint, config]: Parameters<typeof http>) =>
