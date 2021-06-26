@@ -1,7 +1,7 @@
 /**
  * 将对对象的操作封装到context，方便共享context里的数据和函数
  */
-import React, { ReactNode, useContext, useState } from "react";
+import React, { ReactNode, useContext } from "react";
 import * as auth from "auth-provider";
 import { User } from "screens/project-list/search-panel";
 import { http } from "utils/http";
