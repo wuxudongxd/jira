@@ -14,6 +14,7 @@ interface AuthForm {
   password: string;
 }
 
+// 初始化获取user
 const bootstrapUser = async () => {
   let user = null;
   const token = auth.getToken();
@@ -24,6 +25,7 @@ const bootstrapUser = async () => {
   return user;
 };
 
+// context
 const AuthContext = React.createContext<
   | {
       user: User | null;
@@ -35,6 +37,7 @@ const AuthContext = React.createContext<
 >(undefined);
 AuthContext.displayName = "AuthContext";
 
+// context provider 提供auth状态
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const {
     data: user,
@@ -69,6 +72,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
+// context consumer 消费auth状态
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {

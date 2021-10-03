@@ -1,0 +1,30 @@
+{
+  "index": {
+    "app": {
+      "ErrorBoundary": null, // 错误边界
+      "UnauthenticatedApp": {
+        "login": null,
+        "register": null
+      },
+      "AuthenticatedApp": {
+        "PageHeader": null,
+        "Router": {
+          "ProjectListScreen": {
+            "List": {
+              "pin": null // components
+            },
+            "SearchPanel": {
+              "UserSelect": { // components
+                "IdSelect": null
+              }
+            }
+          },
+          "ProjectScreen": {
+            "KanbanScreen": null,
+            "EpicScreen": null
+          }
+        }
+      }
+    }
+  }
+}

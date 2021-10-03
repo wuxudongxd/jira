@@ -4,6 +4,7 @@ import { useAsync } from "utils/use-async";
 import { useEffect } from "react";
 import { cleanObject } from "utils/index";
 
+// 获取user状态
 export const useUsers = (param?: Partial<User>) => {
   const client = useHttp();
   const { run, ...result } = useAsync<User[]>();
