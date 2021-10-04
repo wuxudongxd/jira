@@ -9,6 +9,7 @@ import { Pin } from "components/pin";
 import { useEditProject } from "utils/project";
 import { ButtonNoPadding } from "components/lib";
 
+// TODO 把所有ID都改成number类型
 export interface Project {
   id: number;
   name: string;
@@ -21,7 +22,7 @@ export interface Project {
 interface ListProps extends TableProps<Project> {
   users: User[];
   refresh?: () => void;
-  setProjectModalOpen: (isOpen: boolean) => void;
+  projectButton: JSX.Element;
 }
 
 export const List = ({ users, ...props }: ListProps) => {
@@ -84,14 +85,7 @@ export const List = ({ users, ...props }: ListProps) => {
               <Dropdown
                 overlay={
                   <Menu>
-                    <Menu.Item key={"edit"}>
-                      <ButtonNoPadding
-                        type={"link"}
-                        onClick={() => props.setProjectModalOpen(true)}
-                      >
-                        编辑
-                      </ButtonNoPadding>
-                    </Menu.Item>
+                    <Menu.Item key={"edit"}>{props.projectButton}</Menu.Item>
                   </Menu>
                 }
               >
